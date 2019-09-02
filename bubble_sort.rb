@@ -21,7 +21,7 @@ def bubble_sort_by(array)
   while unsorted
     unsorted = false
     (0..array.size - 2).each do |i|
-      if yield(array[i], array[i+1]).positive?
+      if yield(array[i], array[i + 1]).positive?
         array[i], array[i + 1] = array[i + 1], array[i]
         unsorted = true
       end
@@ -30,6 +30,4 @@ def bubble_sort_by(array)
   print array
 end
 
-bubble_sort_by(["hi","hello","hey"]) do |left,right|
-  left.length - right.length
-end
+bubble_sort_by(%w[hi hello hey]) { |left, right| left.length - right.length }
